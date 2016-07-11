@@ -1,3 +1,4 @@
+'use strict';
 /**
  * CHALLENGE:
  *
@@ -28,13 +29,13 @@ let titleCase = (title, minorWords) => {
 }
 
 // BEST SOLUTION:
-let titleCase = (title, minorWords) => {
-  const minorWords = (typeof minorWords !== "undefined") ? minorWords.toLowerCase().split(' ') : [];
+let titleCaseBest = (input, minor) => {
+  let minorToLower = (typeof minor !== "undefined") ? minor.toLowerCase().split(' ') : [];
 
-  return title.toLowerCase()
+  return input.toLowerCase()
     .split(' ')
     .map((w, i) => {
-      if (w != "" && ((minorWords.indexOf(w) === -1) || i == 0)) {
+      if (w != "" && ((minorToLower.indexOf(w) === -1) || i == 0)) {
         w = w.split('');
         w[0] = w[0].toUpperCase();
         w = w.join('');
@@ -44,6 +45,6 @@ let titleCase = (title, minorWords) => {
     .join(' ');
 }
 
-console.log(titleCase('a clash of KINGS', 'a an the of')); // 'A Clash of Kings
-console.log(titleCase('THE WIND IN THE WILLOWS', 'The In')); // 'The Wind in the Willows'
-console.log(titleCase('the quick brown fox')); // 'The Quick Brown Fox'
+console.log(titleCaseBest('a clash of KINGS', 'a an the of')); // 'A Clash of Kings
+console.log(titleCaseBest('THE WIND IN THE WILLOWS', 'The In')); // 'The Wind in the Willows'
+console.log(titleCaseBest('the quick brown fox')); // 'The Quick Brown Fox'

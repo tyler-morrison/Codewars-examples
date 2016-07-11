@@ -1,10 +1,15 @@
-// Return only negative numbers...
-
-// My Solution...
+'use strict';
+/**
+ * CHALLENGE:
+ *
+ * When given any integer, return its negative value
+ *
+ * MY SOLUTION
+ */
 function makeNegative(num) {
   if (num > 0) num *= (-1);
   return num;
 }
 
 // Best Solution ES6
-makeNegative = (num) => -Math.abs(num);
+let makeNegativeES6 = (num) => -Math.abs(num);
